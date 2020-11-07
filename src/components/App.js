@@ -15,7 +15,7 @@ function App() {
         >
           Learn React
         </a>
-        <CrelloList />
+        <CrelloList title="test" />
       </header>
     </div>
   );
