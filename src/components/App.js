@@ -5,22 +5,22 @@ import CrelloList from "./CrelloList";
 import { connect } from "react-redux";
 
 function App() {
+  const { lists } = lists;
+
   return (
     <div className="App">
       <header className="App-header">
         <p>Looks like it's Working. Made a change</p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <CrelloList title="test" />
+        {lists.map((list) => (
+          <CrelloList title={list.title} cards={list.cards} />
+        ))}
       </header>
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+  lists: state.lists,
+});
+
+export default mapStateToProps(App);
